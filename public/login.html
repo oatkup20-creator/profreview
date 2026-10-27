@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เข้าสู่ระบบ / สมัครสมาชิก | ProfReview</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="auth-page">
+    <main class="auth-card">
+      <div class="auth-logo"><span class="icon lg" aria-hidden="true">deployed_code</span></div>
+      <h1>ProfReview</h1>
+      <p class="sub" id="subheading">สมัครสมาชิกเพื่อเข้าสู่ระบบพอร์ทัลนักศึกษา</p>
+
+      <!-- ===== สมัครสมาชิก ===== -->
+      <section id="view-signup">
+        <form class="auth-form" id="signup-form" novalidate>
+          <div class="alert alert-error" id="signup-alert" hidden></div>
+          <div class="field">
+            <label for="su-id">Student ID / รหัสนักศึกษา <span class="req">*</span></label>
+            <input class="input" id="su-id" name="studentId" inputmode="numeric" maxlength="10" placeholder="เช่น 6501012345" autocomplete="username">
+            <p class="field-error" data-error="studentId" hidden></p>
+          </div>
+          <div class="field">
+            <div class="row-between"><label for="su-email">Institutional Email / อีเมลสถาบัน <span class="req">*</span></label><span class="xs" style="color:var(--blue);font-weight:600">เฉพาะ .ac.th หรือ .edu</span></div>
+            <input class="input" id="su-email" name="email" type="email" placeholder="student@kmitl.ac.th" autocomplete="email">
+            <p class="field-error" data-error="email" hidden></p>
+          </div>
+          <div class="field">
+            <label for="su-pass">Password / รหัสผ่าน <span class="req">*</span></label>
+            <div class="input-icon">
+              <input class="input no-lead" id="su-pass" name="password" type="password" placeholder="อย่างน้อย 6 ตัวอักษร" autocomplete="new-password" style="padding-right:44px">
+              <button type="button" class="eye" data-eye="su-pass" aria-label="แสดงรหัสผ่าน"><span class="icon sm">visibility</span></button>
+            </div>
+            <p class="field-error" data-error="password" hidden></p>
+          </div>
+          <div class="field">
+            <label for="su-pass2">Confirm Password / ยืนยันรหัสผ่าน <span class="req">*</span></label>
+            <div class="input-icon">
+              <input class="input no-lead" id="su-pass2" name="confirm" type="password" placeholder="พิมพ์รหัสผ่านอีกครั้ง" autocomplete="new-password" style="padding-right:44px">
+              <button type="button" class="eye" data-eye="su-pass2" aria-label="แสดงรหัสผ่าน"><span class="icon sm">visibility</span></button>
+            </div>
+            <p class="field-error" data-error="confirm" hidden></p>
+          </div>
+          <div class="field">
+            <label class="check"><input type="checkbox" name="acceptTerms"> <span>ฉันยอมรับ <a href="#" style="color:var(--blue);font-weight:600" data-terms>เงื่อนไขการใช้งาน</a> และ <a href="#" style="color:var(--blue);font-weight:600" data-terms>นโยบายความเป็นส่วนตัว</a></span></label>
+            <p class="field-error" data-error="terms" hidden></p>
+          </div>
+          <button class="btn btn-primary btn-block" style="height:48px" id="su-submit">ยืนยันสมัครสมาชิก →</button>
+        </form>
+        <p class="auth-switch">มีบัญชีอยู่แล้ว? <button type="button" data-view="signin">เข้าสู่ระบบ (Sign In)</button></p>
+      </section>
+
+      <!-- ===== เข้าสู่ระบบ ===== -->
+      <section id="view-signin" hidden>
+        <form class="auth-form" id="signin-form" novalidate>
+          <div class="alert alert-success" id="signin-success" hidden>
+            <span class="icon fill">check_circle</span>
+            <span>สมัครสมาชิกสำเร็จเรียบร้อยแล้ว! กรอกรหัสผ่านเพื่อเข้าสู่ระบบได้ทันที</span>
+          </div>
+          <div class="alert alert-error" id="signin-alert" hidden></div>
+          <div class="field">
+            <label for="si-account">Student ID หรือ Institutional Email <span class="req">*</span></label>
+            <input class="input" id="si-account" name="account" placeholder="เช่น 6501012345 หรือ student@kmitl.ac.th" autocomplete="username">
+          </div>
+          <div class="field">
+            <div class="row-between"><label for="si-pass">Password / รหัสผ่าน <span class="req">*</span></label><a href="#" class="xs" style="color:var(--blue);font-weight:600" id="forgot">ลืมรหัสผ่าน?</a></div>
+            <div class="input-icon">
+              <input class="input no-lead" id="si-pass" name="password" type="password" placeholder="••••••••" autocomplete="current-password" style="padding-right:44px">
+              <button type="button" class="eye" data-eye="si-pass" aria-label="แสดงรหัสผ่าน"><span class="icon sm">visibility</span></button>
+            </div>
+          </div>
+          <label class="check"><input type="checkbox" name="remember" checked> จดจำบัญชีของฉัน (Remember me)</label>
+          <button class="btn btn-primary btn-block" style="height:48px" id="si-submit">เข้าสู่ระบบ (Sign In)</button>
+        </form>
+        <p class="auth-switch">ยังไม่มีบัญชีนักศึกษา? <button type="button" data-view="signup">สมัครสมาชิก (Sign Up)</button></p>
+        <div class="demo-box"><b>บัญชีทดลอง:</b> รหัสนักศึกษา <code>6501012345</code> รหัสผ่าน <code>password</code></div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/js/pages/auth.js"></script>
+</body>
+</html>
